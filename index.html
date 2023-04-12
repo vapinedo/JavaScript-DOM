@@ -4,61 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width= , initial-scale=1.0">
-    <title>Accessing Elements</title>
+    <title>DOM Access</title>
 
     <style>
-      html { font-family: sans-serif; }
-      body { 
-         max-width: 500px; 
-         margin: 0 auto;
+      body {
+         margin: auto;
+         width: 500px;
+         text-align: center;
       }
-      div, p {
-         padding: 0.8em;
-         margin: 1em 0;
-         border: 1px solid #9c9c9c;
+      h1 {
+         color: rgb(101, 7, 239);
+      }
+      button {
+         cursor: pointer;
+         background-color: black;
+         color: white;
+         width: 300px;
+         display: block;
+         padding: 1rem;
+         margin: 0.5rem;
+         margin-bottom: 4px;
+         font-size: 16px;
       }
     </style>
  </head>
  <body>
-   <h1 id="main">Accessing Elements</h1>
-
-   <!-- Secction 1 -->
-   <h2>Using the ID ( #header )</h2>
-   <div id="header">Access this by using 
-      <strong>getElementByID()</strong>
+   <h1>Test yourself</h1>
+   <h2>getElementsByClassName()</h2>
+   <div>
+      <button onclick="green(event)" class="btn green">Click to change this to green</button>
+      <button onclick="blue()" class="btn blue">Click to change this to blue</button>
+      <button onclick="red()" class="btn red">Click to change this to red</button>
+      <button onclick="undo()">Undo</button>
    </div>
 
-   <!-- Secction 2 -->
-   <h2>Using the Class ( .header )</h2>
-   <div class="header">1. Access this by using 
-      <strong>getElementsByClassName()</strong>
-   </div>
-   <div class="header">2. Access this by using 
-      <strong>getElementsByClassName()</strong>
-   </div>
+   <script>
+      function green(eventEmitter) {
+         let button = document.getElementsByClassName("green")[0];
+         button.style.backgroundColor = 'green';
+      }
+      
+      function blue(eventEmitter) {
+         let button = document.getElementsByClassName("blue")[0];
+         button.style.backgroundColor = 'blue';
+      }
+      
+      function red(eventEmitter) {
+         let button = document.getElementsByClassName("red")[0];
+         button.style.backgroundColor = 'red';
+      }
 
-   <!-- Secction 3 -->
-   <h2>Using the Tag ( paragraph tag )</h2>
-   <p>1. Access this by using 
-      <strong>getElementsByTagName()</strong>
-   </p>
-   <p>2. Access this by using 
-      <strong>getElementsByTagName()</strong>
-   </p>
-
-   <!-- Secction 4 -->
-   <h2>Using the Query Selector ( with ID 'query' )</h2>
-   <div id="query">1. Access this by using 
-      <strong>querySelector()</strong>
-   </div>
-
-   <!-- Secction 5 -->
-   <h2>Using the Query Selector All ( with class 'query-all' )</h2>
-   <div class="query-all">1. Access this by using 
-      <strong>querySelectorAll()</strong>
-   </div>
-   <div class="query-all">2. Access this by using 
-      <strong>querySelectorAll()</strong>
-   </div>
+      function undo() {
+         let buttonList = document.getElementsByClassName("btn");
+         for (let i=0; i<buttonList.length; i++) {
+            buttonList[i].style.backgroundColor = "black";
+         }
+      }
+   </script>
  </body>
  </html>
