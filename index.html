@@ -1,65 +1,20 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width= , initial-scale=1.0">
-    <title>DOM Access</title>
+<html>
+   <head>
+      <title>Creating Elements</title>
+   </head>
 
-    <style>
-      body {
-         margin: auto;
-         width: 500px;
-         text-align: center;
-      }
-      h1 {
-         color: rgb(101, 7, 239);
-      }
-      button {
-         cursor: pointer;
-         background-color: black;
-         color: white;
-         width: 300px;
-         display: block;
-         padding: 1rem;
-         margin: 0.5rem;
-         margin-bottom: 4px;
-         font-size: 16px;
-      }
-    </style>
- </head>
- <body>
-   <h1>Test yourself</h1>
-   <h2>getElementsByClassName()</h2>
-   <div>
-      <button onclick="green(event)" class="btn green">Click to change this to green</button>
-      <button onclick="blue()" class="btn blue">Click to change this to blue</button>
-      <button onclick="red()" class="btn red">Click to change this to red</button>
-      <button onclick="undo()">Undo</button>
-   </div>
+   <body>
+      <h1>Am I real?</h1>
 
-   <script>
-      function green(eventEmitter) {
-         let button = document.getElementsByClassName("green")[0];
-         button.style.backgroundColor = 'green';
-      }
-      
-      function blue(eventEmitter) {
-         let button = document.getElementsByClassName("blue")[0];
-         button.style.backgroundColor = 'blue';
-      }
-      
-      function red(eventEmitter) {
-         let button = document.getElementsByClassName("red")[0];
-         button.style.backgroundColor = 'red';
-      }
+      <script>
+         // add a p tag to DOM
+         let pEl = document.createElement("p");
+         pEl.textContent = "Hello world";
+         let bodyEl = document.querySelector("body");
+         bodyEl.insertBefore(pEl, document.querySelector("h1"));
 
-      function undo() {
-         let buttonList = document.getElementsByClassName("btn");
-         for (let i=0; i<buttonList.length; i++) {
-            buttonList[i].style.backgroundColor = "black";
-         }
-      }
-   </script>
- </body>
- </html>
+         // remove p tag from DOM
+         bodyEl.removeChild(pEl);
+      </script>
+   </body>
+</html>
