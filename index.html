@@ -13,8 +13,11 @@
          let bodyEl = document.querySelector("body");
          bodyEl.insertBefore(pEl, document.querySelector("h1"));
 
-         // remove p tag from DOM
-         bodyEl.removeChild(pEl);
+         // 1. remove p tag from DOM 
+         // bodyEl.removeChild(pEl);
+
+         // 2. remove p tag from DOM 
+         // pEl.parentNode.removeChild(pEl);
       </script>
    </body>
 </html>
