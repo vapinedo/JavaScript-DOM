@@ -4,23 +4,19 @@
    </head>
 
    <body>
-      <h1>Am I real?</h1>
+      <h1>This is a h1 tag</h1>
+      <p class="message">This is a paragraph tag</p>
 
       <script>
-         // add a p tag to DOM
-         let pEl = document.createElement("p");
-         pEl.textContent = "Hello world";
-         let bodyEl = document.querySelector("body");
-         bodyEl.insertBefore(pEl, document.querySelector("h1"));
+         let body = document.querySelector("body");
+         let p = document.querySelector(".message");
 
-         // 1. remove p tag from DOM 
-         // bodyEl.removeChild(pEl);
+         function sayWhat() {
+            let clonedText = p.cloneNode(true);
+            body.appendChild(clonedText);
+         }
 
-         // 2. remove p tag from DOM 
-         // pEl.parentNode.removeChild(pEl);
-         
-         // 3. remove p tag from DOM 
-         pEl.remove();
+         // setInterval(sayWhat, 2000);
       </script>
    </body>
 </html>
